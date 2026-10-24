@@ -88,6 +88,8 @@ islamic-techno-archive/
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml           # Automated GitHub Pages CI/CD pipeline
+├── assets/
+│   └── images/                 # Scanned authentic manuscript plates & photographs
 ├── data/
 │   └── clippings.json          # Dublin Core & TEI compliant archival records
 ├── index.html                  # Interactive responsive Digital Humanities portal
