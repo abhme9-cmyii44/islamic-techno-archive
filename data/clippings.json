@@ -14,7 +14,10 @@
     "excerpt_english": "Books were once the treasures of emperors and isolated cloisters. With the water-powered stamp mills of Baghdad, parchment was replaced with linen paper, causing a thousand public libraries and book-markets (Suq al-Warraqin) to bloom from Samarkand to Cordoba.",
     "theological_concept": "'Ilm Nafi' (Beneficial Knowledge) & Ta'mim al-Khitab (Universal Access)",
     "dh_analysis": "The paper revolution created the world's first mass-textual information economy. It democratized both sacred Hadith compilation and rational Hellenistic translations, while prompting early juristic debates on safeguarding sacred orthography against cheap degradation.",
-    "clippings_count": 8
+    "clippings_count": 8,
+    "image_path": "assets/images/01_rag_paper.jpg",
+    "image_caption": "Baghdad Paper Scriptorium: Folio from a 30-part Qur'an copied on linen rag paper by Ya'qut al-Musta'simi (Baghdad).",
+    "image_alt": "Classical Islamic manuscript on Abbasid linen rag paper"
   },
   {
     "id": "automata-850",
@@ -31,7 +34,10 @@
     "excerpt_english": "We engineered vessels that regulate their own fluid levels without human touch through float valves, self-emptying chambers, and hydraulic timers, demonstrating that the unseen laws of pressure are divine blessings ready for use.",
     "theological_concept": "Hiyal Shar'iyyah (Ingenuity as Stewardship) & Sunan al-Kawn (Universal Physical Laws)",
     "dh_analysis": "The Banu Musa applied closed-loop control systems and conical valves nearly a millennium before Western cybernetics. Mechanical simulation was embraced for civic utility and garden fountains, while philosophically distinguished from creating an autonomous conscious soul (Rūḥ).",
-    "clippings_count": 14
+    "clippings_count": 14,
+    "image_path": "assets/images/02_banu_musa.jpg",
+    "image_caption": "Kitab al-Hiyal (The Book of Ingenious Devices): Manuscript diagram of hydraulic siphon and self-regulating valve mechanism.",
+    "image_alt": "Banu Musa mechanical hydraulic diagram from Kitab al-Hiyal"
   },
   {
     "id": "optics-1020",
@@ -48,7 +54,10 @@
     "excerpt_english": "The seeker after truth is not one who studies the writings of the ancients and puts his trust in them, but rather one who suspects his faith in them and subjects what he gathers to inquiry and demonstration using empirical apparatus.",
     "theological_concept": "Al-I'tibar (Empirical Investigation commanded by the Quran: 'Reflect, O you who have insight')",
     "dh_analysis": "Ibn al-Haytham overthrew Euclidean emission theory by proving light travels linearly from objects into the eye. His dark chamber (al-bayt al-muzlim) laid the foundation for photography and the modern experimental scientific method.",
-    "clippings_count": 11
+    "clippings_count": 11,
+    "image_path": "assets/images/04_camera_obscura.jpg",
+    "image_caption": "Kitab al-Manazir (Book of Optics): Title plate and ray diagram demonstrating empirical optical projection and al-Bayt al-Muzlim.",
+    "image_alt": "Ibn al-Haytham optical ray geometry and camera obscura treatise"
   },
   {
     "id": "cartography-1154",
@@ -65,7 +74,10 @@
     "excerpt_english": "We inscribed upon a massive disc of pure silver, weighing four hundred Roman pounds, the contours of all known continents, river networks, climate zones, and trade corridors, rendering the globe accessible to human navigation.",
     "theological_concept": "Sayr fi al-Ard (Travel through the earth to observe divine order) & 'Imarah (Global Trade Stewardship)",
     "dh_analysis": "Al-Idrisi synthesized classical Ptolemaic geography with firsthand accounts from Muslim, Norman, and Mediterranean navigators, creating the most mathematically precise map of the medieval world oriented with South at the top.",
-    "clippings_count": 9
+    "clippings_count": 9,
+    "image_path": "assets/images/04_idrisi_tabula_rogeriana.jpg",
+    "image_caption": "Tabula Rogeriana (Nuzhat al-Mushtaq): Al-Idrisi's 1154 world map showing the Mediterranean, Nile, and Indian Ocean (BnF Arabe 2221).",
+    "image_alt": "Al-Idrisi world map with South oriented at top"
   },
   {
     "id": "robotics-1206",
@@ -82,7 +94,10 @@
     "excerpt_english": "I observed that previous artisans devised machines that functioned only in theory. I engineered reciprocating pistons, segmented cams, and the crankshaft, so that life-giving water could be elevated to city hospitals and fountains without human exhaustion.",
     "theological_concept": "Al-'Amal al-Nafi' (Beneficial Practice), Itqan (Craft Excellence), and Saqya al-Ma' (The Charity of Water)",
     "dh_analysis": "Al-Jazari's invention of the crankshaft is considered the foundational mechanical linkage for the steam engine and modern automobile. His Elephant Clock symbolically incorporated Persian, Indian, Egyptian, and Chinese motifs, celebrating universal civilizational dialogue.",
-    "clippings_count": 19
+    "clippings_count": 19,
+    "image_path": "assets/images/05_elephant_clock.jpg",
+    "image_caption": "Al-Jazari's Programmable Elephant Water Clock: Full color miniature from Topkapi Palace MS Ahmet III 3472 showing automaton mahout, falcon, and dragon.",
+    "image_alt": "Al-Jazari Elephant Clock mechanical automaton miniature"
   },
   {
     "id": "astrolabe-1300",
@@ -99,7 +114,10 @@
     "excerpt_english": "With a single brass plate etched with stereographic projections, a solitary traveler across the Sahara or Indian Ocean can compute the exact solar zenith, determine prayer times, and align their prostration toward the Kaaba with mathematical certitude.",
     "theological_concept": "Miqat (Sacred Timekeeping) & Taskheer al-Nujum ('And by the stars they find direction')",
     "dh_analysis": "The Islamic astrolabe functioned as the smartphone of the pre-modern world—combining geodesy, timekeeping, celestial mathematics, and religious obligation in an exquisitely engraved brass artifact.",
-    "clippings_count": 22
+    "clippings_count": 22,
+    "image_path": "assets/images/03_astrolabe.jpg",
+    "image_caption": "Islamic Brass Planispheric Astrolabe: Universal celestial computer with engraved stereographic rete, prayer curves, and Qibla alignments.",
+    "image_alt": "Engraved Islamic brass astrolabe rete and altitude plates"
   },
   {
     "id": "steam-1577",
@@ -116,7 +134,10 @@
     "excerpt_english": "We constructed an apparatus driven by the expansion of steam, propelling guided impulse vanes to turn a rotating spit, demonstrating the latent power stored within water and fire centuries before Western industrial prime movers.",
     "theological_concept": "Al-Bahr al-Masjur (Harnessing Natural Energy) & Tadqiq al-Hisaab (Precision in Measurement)",
     "dh_analysis": "Taqi al-Din designed an impulse steam vane and built a mechanical clock that measured seconds for astronomical observation in 1577. The demolition of the Istanbul observatory in 1580 serves as a tragic case study in political instability arresting scientific momentum.",
-    "clippings_count": 7
+    "clippings_count": 7,
+    "image_path": "assets/images/07_taqi_al_din.jpg",
+    "image_caption": "Istanbul Observatory of Taqi al-Din (1577): Miniature showing astronomers, sextants, mechanical clocks, and celestial globes.",
+    "image_alt": "Taqi al-Din Istanbul Observatory miniature painting"
   },
   {
     "id": "print-1727",
@@ -133,7 +154,10 @@
     "excerpt_english": "If knowledge remains bound to handwritten manuscripts, ink fades, texts disperse into foreign hands, and books perish in fires. The printing press produces thousands of identical editions, shielding our heritage and reviving the glory of learning.",
     "theological_concept": "Hifz al-Turath (Preservation of Civilization) & Fatawa al-Nawazil (Jurisprudence of New Technologies)",
     "dh_analysis": "The fatwa of Shaykh al-Islam Abdullah Efendi permitted printing for non-religious works (history, dictionaries, medicine, geography) while preserving handwritten calligraphy for the Quran. This historical debate illustrates how Islamic society navigated technological disruption through juristic consensus.",
-    "clippings_count": 16
+    "clippings_count": 16,
+    "image_path": "assets/images/08_printing_press.jpg",
+    "image_caption": "Muteferrika Imperial Press (1728): Engraved nautical and world map from Katip Celebi's Cihannuma printed at Istanbul.",
+    "image_alt": "First Ottoman printed map by Ibrahim Muteferrika press"
   },
   {
     "id": "radio-1934",
@@ -150,7 +174,10 @@
     "excerpt_english": "When the microphone was placed before Sheikh Muhammad Rifat on May 31, 1934, broadcasting 'Inna Fatahna Laka Fathan Mubeena', listeners across Cairo, Jerusalem, and Damascus fell silent. The ethereal waves carried the divine words without wire, transforming living rooms into sacred sanctuaries.",
     "theological_concept": "Balagh (Conveyance to all humanity) & Hurmat al-Sawt (Acoustic Reverence)",
     "dh_analysis": "Initial juristic debates questioned whether listening to the Quran through a mechanical radio receiver warranted the prostration of recitation (Sajdat al-Tilawah). Once resolved, the Quranic radio became the most potent mass-cultural unifying force in the modern Arab and Islamic world.",
-    "clippings_count": 12
+    "clippings_count": 12,
+    "image_path": "assets/images/09_sheikh_rifat_radio.jpg",
+    "image_caption": "The Living Acoustic Quran: Sheikh Muhammad Rifat reciting before Egyptian State Broadcasting microphone on opening day, May 31, 1934.",
+    "image_alt": "Sheikh Muhammad Rifat at the microphone for historical first radio broadcast"
   },
   {
     "id": "ai-2024",
@@ -167,6 +194,9 @@
     "excerpt_english": "Artificial intelligence models possess no spiritual soul (Rūḥ) or divine moral agency; they are mathematical mirrors of human training data. Their deployment must be governed by the preservation of human dignity, justice ('Adl), and the prevention of algorithmic discrimination and exploitative surveillance.",
     "theological_concept": "Maqasid al-Shariah (Five Universals: Faith, Life, Intellect, Lineage, Wealth) & Maslahah Mursalah",
     "dh_analysis": "While Western transhumanists promote AI as an autonomous post-human deity, Islamic thought frames AI strictly as an instrument of Taskheer. Machine intelligence is bound by accountability, transparency, human dignity, and the prohibition of algorithmic harm.",
-    "clippings_count": 25
+    "clippings_count": 25,
+    "image_path": "assets/images/10_algorithmic_geometry.jpg",
+    "image_caption": "Algorithmic Girih Geometry: Infinite non-periodic mathematical tessellations embodying Islamic computational ethics and recursive symmetry.",
+    "image_alt": "Complex Islamic geometric girih pattern tilework"
   }
 ]

@@ -5,170 +5,316 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Islamic Techno-Optimism Archive | أرشيف الاستخلاف والتقنية</title>
   <meta name="description" content="A Digital Humanities archive exploring 1,200 years of Islamic technological promises, mechanical ingenuity, and the philosophy of Taskheer.">
+  <link rel="icon" href="assets/images/05_elephant_clock.jpg">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif; background-color: #0b0d10; color: #f1f5f9; }
+    body {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #0b0d10;
+      color: #f1f5f9;
+    }
     .font-amiri { font-family: 'Amiri', serif; }
     .font-cinzel { font-family: 'Cinzel', serif; }
-    .card-hover { transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
-    .card-hover:hover { border-color: #f59e0b; transform: translateY(-3px); box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.1); }
-    .active-pill { background-color: #f59e0b; color: #000; border-color: #f59e0b; font-weight: 600; }
+    .card-hover {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-hover:hover {
+      border-color: #f59e0b;
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -8px rgba(245, 158, 11, 0.15);
+    }
+    .active-pill {
+      background-color: #f59e0b !important;
+      color: #000 !important;
+      border-color: #f59e0b !important;
+      font-weight: 700 !important;
+    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0b0d10;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #27272a;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #f59e0b;
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-amber-400 selection:text-black">
 
   <!-- Top Announcement Bar -->
-  <div class="bg-zinc-900 border-b border-zinc-800 text-[11px] py-1.5 px-4 text-center text-zinc-400">
+  <aside aria-label="Announcement" class="bg-zinc-950 border-b border-zinc-800 text-[11px] py-1.5 px-4 text-center text-zinc-400 tracking-wider">
     <span>✦ DIGITAL HUMANITIES ARCHIVE · THE ISLAMIC PARADIGM OF TASKHEER & URBAN CIVILIZATION (فقه الاستخلاف والعمران) ✦</span>
-  </div>
+  </aside>
 
   <!-- Primary Header -->
-  <header class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur sticky top-0 z-40 px-6 py-4">
-    <div class="max-w-6xl w-full mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+  <header class="border-b border-zinc-800 bg-zinc-950/90 backdrop-blur sticky top-0 z-40 px-6 py-4">
+    <div class="max-w-7xl w-full mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
       <div>
-        <a href="#" class="text-xl font-bold tracking-tight text-white hover:text-amber-400 transition font-cinzel">
-          ✦ THE ISLAMIC TECHNO-ARCHIVE ✦
+        <a href="#" class="text-xl font-bold tracking-tight text-white hover:text-amber-400 transition font-cinzel flex items-center gap-2">
+          <span>✦ THE ISLAMIC TECHNO-ARCHIVE ✦</span>
         </a>
         <p class="text-xs text-amber-500 font-amiri text-sm tracking-wide mt-0.5">
           أرشيف الاستخلاف والتقنية عبر الحضارة الإسلامية
         </p>
       </div>
-      <nav class="flex gap-6 text-xs uppercase tracking-wider text-zinc-400">
-        <a href="#archive" class="hover:text-amber-400 transition">Archive</a>
+      <nav class="flex flex-wrap gap-5 text-xs uppercase tracking-wider text-zinc-400 items-center">
+        <a href="#visual-index" class="hover:text-amber-400 transition">Visual Index</a>
+        <a href="#archive" class="hover:text-amber-400 transition">Archive Clippings</a>
         <a href="#philosophy" class="hover:text-amber-400 transition">Philosophy</a>
         <a href="#comparison" class="hover:text-amber-400 transition">Dialectic</a>
         <a href="#about" class="hover:text-amber-400 transition">About</a>
-        <button onclick="exportDataJSON()" class="text-amber-400 hover:underline">Export JSON</button>
+        <button onclick="exportDataJSON()" class="px-2.5 py-1 bg-amber-500/10 border border-amber-500/40 text-amber-400 hover:bg-amber-500 hover:text-black transition font-mono text-[11px]">
+          Export JSON
+        </button>
       </nav>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="max-w-6xl w-full mx-auto px-6 pt-12 pb-8 border-b border-zinc-800">
+  <section class="max-w-7xl w-full mx-auto px-6 pt-12 pb-10 border-b border-zinc-800">
     <div class="max-w-3xl">
-      <div class="inline-flex items-center gap-2 px-2.5 py-1 bg-amber-950/40 border border-amber-800/60 text-amber-400 text-xs font-mono mb-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-950/40 border border-amber-800/60 text-amber-400 text-xs font-mono mb-4">
         <span>ARCHIVAL REPLICATION & THEOLOGICAL CRITIQUE</span>
       </div>
       <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight font-cinzel">
-        Promises of Sacred Progress
+        Browse Old Promises of Sacred Technologies
       </h1>
       <p class="text-zinc-400 mt-4 leading-relaxed text-sm md:text-base">
-        Inspired by the minimalist media archaeology of <a href="https://technooptimism.org/archive/" target="_blank" class="text-amber-400 underline decoration-zinc-600 underline-offset-4 hover:decoration-amber-400">technooptimism.org</a>, this digital archive traces 1,200 years of technological ambition across the Islamic world. From the Baghdad paper foundries to automated water clocks, optical dark chambers, and algorithmic AI, we investigate how Muslim inventors and jurists conceptualized tools under the doctrine of <strong class="text-zinc-200">Taskheer (Divine Subjection)</strong>.
+        Inspired by the minimalist media archaeology of <a href="https://technooptimism.org/archive/" target="_blank" rel="noopener noreferrer" class="text-amber-400 underline decoration-zinc-600 underline-offset-4 hover:decoration-amber-400">technooptimism.org</a>, this digital archive curates 1,200 years of technological ambition across the Islamic world. From Baghdad rag paper to automated water clocks, optical ray tracing, and algorithmic ethics, we explore how Muslim polymaths and jurists understood tools under the doctrine of <strong class="text-zinc-200">Taskheer (Divine Subjection)</strong>.
       </p>
     </div>
 
+    <!-- Visual Top-Level Index (Replicating technooptimism.org's iconic cards) -->
+    <div id="visual-index" class="mt-10 pt-6 border-t border-zinc-800/80">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xs uppercase tracking-widest text-zinc-400 font-mono">✦ HISTORICAL TECHNOLOGIES GALLERY (Click to Jump)</h2>
+        <span class="text-xs text-zinc-500 font-mono">10 Milestones</span>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+        
+
+        <button onclick="jumpToCard('paper-750')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-amber-400 overflow-hidden text-left p-2.5 transition card-hover block w-full">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-black mb-2 relative">
+            <img src="assets/images/01_rag_paper.jpg" alt="Classical Islamic manuscript on Abbasid linen rag paper" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90 group-hover:brightness-100" >
+            <span class="absolute bottom-1 right-1 bg-black/80 px-1.5 py-0.5 text-[9px] font-mono text-amber-400">750s</span>
+          </div>
+          <span class="block text-[11px] font-bold text-white group-hover:text-amber-400 transition font-cinzel line-clamp-1">RAG PAPER PRODUCTION</span>
+          <span class="block text-[10px] text-zinc-500 font-amiri line-clamp-1">صناعة الكاغد والورق الكتاني</span>
+        </button>
+        <button onclick="jumpToCard('automata-850')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-amber-400 overflow-hidden text-left p-2.5 transition card-hover block w-full">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-black mb-2 relative">
+            <img src="assets/images/02_banu_musa.jpg" alt="Banu Musa mechanical hydraulic diagram from Kitab al-Hiyal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90 group-hover:brightness-100" >
+            <span class="absolute bottom-1 right-1 bg-black/80 px-1.5 py-0.5 text-[9px] font-mono text-amber-400">850s</span>
+          </div>
+          <span class="block text-[11px] font-bold text-white group-hover:text-amber-400 transition font-cinzel line-clamp-1">AUTOMATA & FEEDBACK CONTROLS</span>
+          <span class="block text-[10px] text-zinc-500 font-amiri line-clamp-1">علم الحيل والآلات الذاتية الحركة</span>
+        </button>
+        <button onclick="jumpToCard('optics-1020')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-amber-400 overflow-hidden text-left p-2.5 transition card-hover block w-full">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-black mb-2 relative">
+            <img src="assets/images/04_camera_obscura.jpg" alt="Ibn al-Haytham optical ray geometry and camera obscura treatise" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90 group-hover:brightness-100" >
+            <span class="absolute bottom-1 right-1 bg-black/80 px-1.5 py-0.5 text-[9px] font-mono text-amber-400">1020s</span>
+          </div>
+          <span class="block text-[11px] font-bold text-white group-hover:text-amber-400 transition font-cinzel line-clamp-1">OPTICAL CAMERA OBSCURA & EXPERIMENTATION</span>
+          <span class="block text-[10px] text-zinc-500 font-amiri line-clamp-1">البيت المظلم والمنهج الاستقرائي في علم المناظر</span>
+        </button>
+        <button onclick="jumpToCard('cartography-1154')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-amber-400 overflow-hidden text-left p-2.5 transition card-hover block w-full">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-black mb-2 relative">
+            <img src="assets/images/04_idrisi_tabula_rogeriana.jpg" alt="Al-Idrisi world map with South oriented at top" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90 group-hover:brightness-100" >
+            <span class="absolute bottom-1 right-1 bg-black/80 px-1.5 py-0.5 text-[9px] font-mono text-amber-400">1150s</span>
+          </div>
+          <span class="block text-[11px] font-bold text-white group-hover:text-amber-400 transition font-cinzel line-clamp-1">CARTOGRAPHY & THE SILVER PLANISPHERE</span>
+          <span class="block text-[10px] text-zinc-500 font-amiri line-clamp-1">رسم الخرائط والكرة الفضية المسطحة</span>
+        </button>
+        <button onclick="jumpToCard('robotics-1206')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-amber-400 overflow-hidden text-left p-2.5 transition card-hover block w-full">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-black mb-2 relative">
+            <img src="assets/images/05_elephant_clock.jpg" alt="Al-Jazari Elephant Clock mechanical automaton miniature" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90 group-hover:brightness-100" >
+            <span class="absolute bottom-1 right-1 bg-black/80 px-1.5 py-0.5 text-[9px] font-mono text-amber-400">1206</span>
+          </div>
+          <span class="block text-[11px] font-bold text-white group-hover:text-amber-400 transition font-cinzel line-clamp-1">HYDRAULIC CRANKSHAFTS & AUTOMATED CLOCKS</span>
+          <span class="block text-[10px] text-zinc-500 font-amiri line-clamp-1">الآلات الهندسية والمضخات وميكانيكا التحويل</span>
+        </button>
+        <button onclick="jumpToCard('astrolabe-1300')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-amber-400 overflow-hidden text-left p-2.5 transition card-hover block w-full">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-black mb-2 relative">
+            <img src="assets/images/03_astrolabe.jpg" alt="Engraved Islamic brass astrolabe rete and altitude plates" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90 group-hover:brightness-100" >
+            <span class="absolute bottom-1 right-1 bg-black/80 px-1.5 py-0.5 text-[9px] font-mono text-amber-400">1300s</span>
+          </div>
+          <span class="block text-[11px] font-bold text-white group-hover:text-amber-400 transition font-cinzel line-clamp-1">UNIVERSAL ASTROLABES & GEODESIC COMPUTERS</span>
+          <span class="block text-[10px] text-zinc-500 font-amiri line-clamp-1">الأسطرلاب الجامع وعلم الميقات الفلكي</span>
+        </button>
+        <button onclick="jumpToCard('steam-1577')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-amber-400 overflow-hidden text-left p-2.5 transition card-hover block w-full">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-black mb-2 relative">
+            <img src="assets/images/07_taqi_al_din.jpg" alt="Taqi al-Din Istanbul Observatory miniature painting" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90 group-hover:brightness-100" >
+            <span class="absolute bottom-1 right-1 bg-black/80 px-1.5 py-0.5 text-[9px] font-mono text-amber-400">1570s</span>
+          </div>
+          <span class="block text-[11px] font-bold text-white group-hover:text-amber-400 transition font-cinzel line-clamp-1">STEAM TURBINES & PRECISION OBSERVATORY CLOCKS</span>
+          <span class="block text-[10px] text-zinc-500 font-amiri line-clamp-1">المضخة البخارية وساعات الرصد الفلكي الدقيقة</span>
+        </button>
+        <button onclick="jumpToCard('print-1727')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-amber-400 overflow-hidden text-left p-2.5 transition card-hover block w-full">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-black mb-2 relative">
+            <img src="assets/images/08_printing_press.jpg" alt="First Ottoman printed map by Ibrahim Muteferrika press" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90 group-hover:brightness-100" >
+            <span class="absolute bottom-1 right-1 bg-black/80 px-1.5 py-0.5 text-[9px] font-mono text-amber-400">1720s</span>
+          </div>
+          <span class="block text-[11px] font-bold text-white group-hover:text-amber-400 transition font-cinzel line-clamp-1">ARABIC-SCRIPT MOVABLE TYPE PRINTING</span>
+          <span class="block text-[10px] text-zinc-500 font-amiri line-clamp-1">مطبعة الحروف العربية العثمانية - إبراهيم متفرقة</span>
+        </button>
+        <button onclick="jumpToCard('radio-1934')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-amber-400 overflow-hidden text-left p-2.5 transition card-hover block w-full">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-black mb-2 relative">
+            <img src="assets/images/09_sheikh_rifat_radio.jpg" alt="Sheikh Muhammad Rifat at the microphone for historical first radio broadcast" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90 group-hover:brightness-100" >
+            <span class="absolute bottom-1 right-1 bg-black/80 px-1.5 py-0.5 text-[9px] font-mono text-amber-400">1930s</span>
+          </div>
+          <span class="block text-[11px] font-bold text-white group-hover:text-amber-400 transition font-cinzel line-clamp-1">RADIO BROADCASTING & THE AURAL QURAN</span>
+          <span class="block text-[10px] text-zinc-500 font-amiri line-clamp-1">الإذاعة والبث الصوتي للقرآن الكريم</span>
+        </button>
+        <button onclick="jumpToCard('ai-2024')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-amber-400 overflow-hidden text-left p-2.5 transition card-hover block w-full">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-black mb-2 relative">
+            <img src="assets/images/10_algorithmic_geometry.jpg" alt="Complex Islamic geometric girih pattern tilework" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90 group-hover:brightness-100" >
+            <span class="absolute bottom-1 right-1 bg-black/80 px-1.5 py-0.5 text-[9px] font-mono text-amber-400">2020s</span>
+          </div>
+          <span class="block text-[11px] font-bold text-white group-hover:text-amber-400 transition font-cinzel line-clamp-1">ARTIFICIAL INTELLIGENCE & ETHICAL ALGORITHMS</span>
+          <span class="block text-[10px] text-zinc-500 font-amiri line-clamp-1">الذكاء الاصطناعي وأخلاقيات الخوارزميات الإسلامية</span>
+        </button>
+      </div>
+    </div>
+
     <!-- Search & Filter Controls -->
-    <div id="archive" class="mt-8 pt-6 border-t border-zinc-800/80 flex flex-col md:flex-row justify-between items-stretch md:items-center gap-4">
+    <div id="archive" class="mt-10 pt-8 border-t border-zinc-800/80 flex flex-col md:flex-row justify-between items-stretch md:items-center gap-4">
       <div class="relative w-full md:w-96">
-        <input type="text" id="searchInput" placeholder="Search technology, inventor, manuscript, Arabic term..." 
-               class="bg-zinc-900 border border-zinc-700 px-4 py-2.5 text-xs rounded-none focus:outline-none focus:border-amber-400 w-full text-white placeholder-zinc-500 font-mono">
-        <span class="absolute right-3 top-2.5 text-xs text-zinc-500 pointer-events-none">⌘K</span>
+        <input type="text" id="searchInput" placeholder="Search technology, inventor, manuscript, Arabic..." 
+               class="bg-zinc-900 border border-zinc-700 px-4 py-2.5 text-xs rounded-none focus:outline-none focus:border-amber-400 w-full text-white placeholder-zinc-500 font-mono"
+               oninput="filterArchive()">
+        <span class="absolute right-3 top-2.5 text-xs text-zinc-500 pointer-events-none font-mono">⌘K</span>
       </div>
 
       <div class="flex gap-2 flex-wrap text-xs">
-        <button onclick="setFilter('all', this)" class="px-3.5 py-2 border border-zinc-700 bg-zinc-800 text-white transition active-pill">All Milestones (<span id="countAll">10</span>)</button>
-        <button onclick="setFilter('Classical', this)" class="px-3.5 py-2 border border-zinc-800 hover:border-amber-400 text-zinc-400 hover:text-white transition">Classical (8th–13th C)</button>
-        <button onclick="setFilter('Early Modern', this)" class="px-3.5 py-2 border border-zinc-800 hover:border-amber-400 text-zinc-400 hover:text-white transition">Early Modern (14th–18th C)</button>
-        <button onclick="setFilter('Modern', this)" class="px-3.5 py-2 border border-zinc-800 hover:border-amber-400 text-zinc-400 hover:text-white transition">Modern & Digital (20th–21st C)</button>
+        <button onclick="setFilter('all', this)" class="filter-btn px-3.5 py-2 border border-zinc-700 bg-zinc-800 text-white transition active-pill">All Milestones (<span id="countAll">10</span>)</button>
+        <button onclick="setFilter('Classical', this)" class="filter-btn px-3.5 py-2 border border-zinc-800 hover:border-amber-400 text-zinc-400 hover:text-white transition">Classical (8th–13th C)</button>
+        <button onclick="setFilter('Early Modern', this)" class="filter-btn px-3.5 py-2 border border-zinc-800 hover:border-amber-400 text-zinc-400 hover:text-white transition">Early Modern (14th–18th C)</button>
+        <button onclick="setFilter('Modern', this)" class="filter-btn px-3.5 py-2 border border-zinc-800 hover:border-amber-400 text-zinc-400 hover:text-white transition">Modern & Digital (20th–21st C)</button>
       </div>
     </div>
   </section>
 
   <!-- Main Archive Grid -->
-  <main class="max-w-6xl w-full mx-auto px-6 py-12 flex-grow">
-    <div id="archiveGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Dynamic Card Loading -->
+  <main class="max-w-7xl w-full mx-auto px-6 py-12 flex-grow">
+    <div id="archiveGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Dynamic Card Loading with Full Images -->
     </div>
     
-    <div id="noResults" class="hidden text-center py-16 border border-dashed border-zinc-800 text-zinc-500 text-sm font-mono">
-      No technological milestones matched your search query. Try searching for "Al-Jazari", "Optics", "Paper", or "Baghdad".
+    <div id="noResults" class="hidden text-center py-20 border border-dashed border-zinc-800 text-zinc-500 text-sm font-mono">
+      No technological milestones matched your search query. Try searching for "Al-Jazari", "Optics", "Paper", "Astrolabe", or "Baghdad".
     </div>
   </main>
 
-  <!-- Interactive Modal Viewer -->
-  <div id="modalBackdrop" class="fixed inset-0 bg-black/85 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4" onclick="handleBackdropClick(event)">
-    <div class="bg-zinc-900 border border-zinc-700 max-w-2xl w-full p-6 md:p-8 relative max-h-[92vh] overflow-y-auto" onclick="event.stopPropagation()">
-      <button onclick="closeModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-amber-400 text-2xl font-mono leading-none">✕</button>
+  <!-- Interactive Modal Viewer (High Resolution Inspection) -->
+  <div id="modalBackdrop" class="fixed inset-0 bg-black/90 backdrop-blur-md hidden z-50 flex items-center justify-center p-4 md:p-6" onclick="handleBackdropClick(event)">
+    <div class="bg-zinc-900 border border-zinc-700 max-w-4xl w-full p-6 md:p-8 relative max-h-[94vh] overflow-y-auto" onclick="event.stopPropagation()">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-amber-400 text-2xl font-mono leading-none transition" title="Close Clipping">✕</button>
       <div id="modalContent"></div>
     </div>
   </div>
 
   <!-- Deep Dive: The Islamic Philosophy of Technology -->
   <section id="philosophy" class="bg-zinc-950 border-t border-b border-zinc-800 py-16 px-6">
-    <div class="max-w-6xl w-full mx-auto">
+    <div class="max-w-5xl mx-auto">
       <div class="text-center max-w-2xl mx-auto mb-12">
-        <span class="text-xs uppercase tracking-widest text-amber-500 font-mono">Epistemological Foundations</span>
-        <h2 class="text-2xl md:text-4xl font-bold text-white mt-1 font-cinzel">The Islamic Paradigm of Technology</h2>
-        <p class="text-xs text-zinc-400 mt-2 font-amiri text-base">ثلاثية فقه التقنية: التسخير، الاستخلاف، والعلم النافع</p>
+        <span class="text-xs uppercase tracking-widest text-amber-500 font-mono">THEORETICAL FOUNDATION</span>
+        <h2 class="text-2xl md:text-4xl font-bold text-white mt-2 font-cinzel">The Triad of Islamic Technology</h2>
+        <p class="text-zinc-400 text-xs md:text-sm mt-3 leading-relaxed">
+          Technology in Islamic thought is neither autonomous nor neutral. It is governed by a tripartite theological matrix rooted in the Quranic worldview.
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="border border-zinc-800 bg-zinc-900/40 p-6">
-          <div class="text-amber-400 text-xl font-bold font-cinzel mb-1">01. TASKHEER (تَسْخِير)</div>
-          <div class="text-xs text-zinc-400 font-mono mb-3">Cosmic Subjection & Intelligibility</div>
-          <p class="text-xs text-zinc-300 leading-relaxed">
-            The cosmos is not a hostile wilderness to be conquered, nor an enchanted deity to be worshipped. Physical laws, water dynamics, iron metallurgy (Surah Al-Hadid), and celestial orbits are deliberately subjected by God for human flourishing and study.
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-zinc-900/80 border border-zinc-800 p-6 card-hover">
+          <div class="w-10 h-10 bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-mono text-sm mb-4">
+            01
+          </div>
+          <h3 class="text-lg font-bold text-white font-cinzel">Taskheer (تَسْخِير)</h3>
+          <span class="text-xs text-amber-400 font-mono block mt-0.5">Divine Subjection</span>
+          <p class="text-zinc-400 text-xs mt-3 leading-relaxed">
+            Nature is not an enemy to be subjugated or conquered. The cosmos has been graciously subjected by God for human sustenance (<em class="text-zinc-300">Surah Luqman 31:20</em>). Technology is the humble realization of cosmic laws (<em class="text-zinc-300">Sunan Allah</em>).
           </p>
         </div>
 
-        <div class="border border-zinc-800 bg-zinc-900/40 p-6">
-          <div class="text-amber-400 text-xl font-bold font-cinzel mb-1">02. KHILAFAH (خِلَافَة)</div>
-          <div class="text-xs text-zinc-400 font-mono mb-3">Moral Stewardship & Anti-Fasad</div>
-          <p class="text-xs text-zinc-300 leading-relaxed">
-            Human agency is fiduciary trusteeship (*Amanah*). The engineer does not possess absolute sovereignty over nature. Technology must never cause corruption (*Fasad fi al-Ard*), environmental exploitation, or the destruction of human dignity.
+        <div class="bg-zinc-900/80 border border-zinc-800 p-6 card-hover">
+          <div class="w-10 h-10 bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-mono text-sm mb-4">
+            02
+          </div>
+          <h3 class="text-lg font-bold text-white font-cinzel">Khilafah (اسْتِخْلاف)</h3>
+          <span class="text-xs text-amber-400 font-mono block mt-0.5">Moral Stewardship</span>
+          <p class="text-zinc-400 text-xs mt-3 leading-relaxed">
+            Humankind is not a sovereign conqueror, but a trustee (<em class="text-zinc-300">Khalifah</em>) bound by a sacred trust (<em class="text-zinc-300">Amanah</em>). Technological innovation must preserve cosmic equilibrium (<em class="text-zinc-300">Mizan</em>) and prevent earthly ruin (<em class="text-zinc-300">Fasad fi al-Ard</em>).
           </p>
         </div>
 
-        <div class="border border-zinc-800 bg-zinc-900/40 p-6">
-          <div class="text-amber-400 text-xl font-bold font-cinzel mb-1">03. 'ILM NAFI' (عِلْم نَافِع)</div>
-          <div class="text-xs text-zinc-400 font-mono mb-3">Beneficial Utility & Ethical Purpose</div>
-          <p class="text-xs text-zinc-300 leading-relaxed">
-            Innovation is classified by its fruits. Islamic civilization prioritized technologies serving communal obligations (*Fard Kifayah*): civic water supply, medical diagnosis, astronomical prayer reckoning (*Miqat*), and knowledge democratization.
+        <div class="bg-zinc-900/80 border border-zinc-800 p-6 card-hover">
+          <div class="w-10 h-10 bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-mono text-sm mb-4">
+            03
+          </div>
+          <h3 class="text-lg font-bold text-white font-cinzel">'Ilm Nafi' (عِلْم نَافِع)</h3>
+          <span class="text-xs text-amber-400 font-mono block mt-0.5">Beneficial Teleology</span>
+          <p class="text-zinc-400 text-xs mt-3 leading-relaxed">
+            The Prophet ﷺ prayed for beneficial knowledge and sought refuge from knowledge that does not benefit. Machinery must serve the <em class="text-zinc-300">Maqasid al-Shariah</em>: safeguarding faith, life, intellect, lineage, and public wealth.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Dialectic: Secular Prometheanism vs Islamic Purposeful Progress -->
-  <section id="comparison" class="py-16 px-6 max-w-6xl w-full mx-auto">
-    <div class="text-center max-w-2xl mx-auto mb-10">
-      <span class="text-xs uppercase tracking-widest text-amber-500 font-mono">Comparative Critique</span>
-      <h2 class="text-2xl md:text-3xl font-bold text-white mt-1 font-cinzel">Secular Techno-Optimism vs. Islamic Realism</h2>
+  <!-- Dialectic Comparison Section -->
+  <section id="comparison" class="max-w-6xl w-full mx-auto px-6 py-16">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="text-xs uppercase tracking-widest text-amber-500 font-mono">DIALECTIC ANALYSIS</span>
+      <h2 class="text-2xl md:text-4xl font-bold text-white mt-2 font-cinzel">Promethean vs. Purposeful Techno-Optimism</h2>
+      <p class="text-zinc-400 text-xs md:text-sm mt-3 leading-relaxed">
+        Contrasting the Silicon Valley / Western Promethean paradigm with the Islamic purposeful model of Taskheer.
+      </p>
     </div>
 
-    <div class="overflow-x-auto border border-zinc-800 bg-zinc-900/50">
-      <table class="w-full text-left text-xs border-collapse">
-        <thead>
-          <tr class="border-b border-zinc-800 bg-zinc-900 text-zinc-300 font-cinzel text-xs">
-            <th class="p-4 border-r border-zinc-800">Analytical Dimension</th>
-            <th class="p-4 border-r border-zinc-800 text-red-400/90">Western Secular Techno-Optimism</th>
-            <th class="p-4 text-amber-400">Islamic Technological Paradigm</th>
+    <div class="overflow-x-auto border border-zinc-800">
+      <table class="w-full text-left text-xs text-zinc-300 border-collapse">
+        <thead class="bg-zinc-900 uppercase font-mono text-[11px] text-zinc-400 border-b border-zinc-800">
+          <tr>
+            <th class="p-4 border-r border-zinc-800">Dimension</th>
+            <th class="p-4 border-r border-zinc-800 text-red-300/80">Western Promethean Techno-Optimism</th>
+            <th class="p-4 text-amber-300">Islamic Purposeful Techno-Realism (Fiqh al-Taskheer)</th>
           </tr>
         </thead>
-        <tbody class="divide-y divide-zinc-800/80 text-zinc-300">
-          <tr>
-            <td class="p-4 font-semibold border-r border-zinc-800">Cosmological Vision</td>
-            <td class="p-4 border-r border-zinc-800">Promethean: Man conquers an indifferent universe; technology will overcome death and suffering.</td>
-            <td class="p-4">Theocentric: Nature is a divine trust (*Amanah*); technology is a tool to fulfill moral stewardship (*'Imarah*).</td>
+        <tbody class="divide-y divide-zinc-800 font-mono text-[11px]">
+          <tr class="hover:bg-zinc-900/40">
+            <td class="p-4 font-semibold text-white border-r border-zinc-800">Origin Mythos</td>
+            <td class="p-4 border-r border-zinc-800 text-zinc-400">Prometheus stealing fire from the gods; human rebellion and total autonomy.</td>
+            <td class="p-4 text-zinc-300">The Divine Gift of Taskheer: God subjected the heavens and earth as a sacred trust.</td>
           </tr>
-          <tr>
-            <td class="p-4 font-semibold border-r border-zinc-800">The Problem of Evil</td>
-            <td class="p-4 border-r border-zinc-800">Believes social conflict and war are merely "communication/engineering glitches" that machines will fix.</td>
-            <td class="p-4">Recognizes moral failure stems from human spiritual disease (*Qalb*), not deficient machinery.</td>
+          <tr class="hover:bg-zinc-900/40">
+            <td class="p-4 font-semibold text-white border-r border-zinc-800">Relation to Nature</td>
+            <td class="p-4 border-r border-zinc-800 text-zinc-400">Nature is an obstacle to be conquered, mined, and remade by sheer human will.</td>
+            <td class="p-4 text-zinc-300">Nature is a sacred sign (Ayah) and living balance (Mizan) to be stewarded.</td>
           </tr>
-          <tr>
-            <td class="p-4 font-semibold border-r border-zinc-800">Ethical Framework</td>
-            <td class="p-4 border-r border-zinc-800">Utilitarian accelerationism; market efficiency; "move fast and break things".</td>
-            <td class="p-4"><em>Maqasid al-Shariah</em>: Preserving Faith, Life, Intellect, Lineage, and Wealth against corruption.</td>
+          <tr class="hover:bg-zinc-900/40">
+            <td class="p-4 font-semibold text-white border-r border-zinc-800">Ultimate Goal (Telos)</td>
+            <td class="p-4 border-r border-zinc-800 text-zinc-400">Technological singularity, transhumanist godhood, and escaping physical limits.</td>
+            <td class="p-4 text-zinc-300">Human flourishing (Maslahah), justice ('Adl), and ethical accountability in the Hereafter.</td>
           </tr>
-          <tr>
-            <td class="p-4 font-semibold border-r border-zinc-800">View on AI & Transhumanism</td>
-            <td class="p-4 border-r border-zinc-800">Strives for artificial godhood, mind uploading, and transcending the biological human condition.</td>
-            <td class="p-4">Rejects machine consciousness (*Rūḥ*); AI is an accountable statistical tool bounded by justice and human dignity.</td>
+          <tr class="hover:bg-zinc-900/40">
+            <td class="p-4 font-semibold text-white border-r border-zinc-800">Evaluation Criterion</td>
+            <td class="p-4 border-r border-zinc-800 text-zinc-400">Speed, disruption, commercial efficiency, and venture capital returns.</td>
+            <td class="p-4 text-zinc-300">Preservation of the 5 Essentials of Maqasid al-Shariah: Faith, Life, Intellect, Lineage, Wealth.</td>
+          </tr>
+          <tr class="hover:bg-zinc-900/40">
+            <td class="p-4 font-semibold text-white border-r border-zinc-800">Labor & Community</td>
+            <td class="p-4 border-r border-zinc-800 text-zinc-400">Creative destruction; displacement of artisans celebrated as inevitable efficiency.</td>
+            <td class="p-4 text-zinc-300">Preservation of artisan dignity (Futuwah guilds), equitable wage distribution, and civic welfare.</td>
           </tr>
         </tbody>
       </table>
@@ -176,309 +322,439 @@
   </section>
 
   <!-- About Section -->
-  <section id="about" class="border-t border-zinc-800 bg-zinc-950 py-16 px-6">
-    <div class="max-w-4xl w-full mx-auto text-xs leading-relaxed text-zinc-400 space-y-4">
-      <h3 class="text-xl font-bold text-white font-cinzel mb-2">About The Islamic Techno-Optimism Archive</h3>
-      <p>
-        This archive is a non-profit, open-access Digital Humanities research initiative. It systematically documents historical moments across Islamic civilization when new inventions sparked transformative civic, intellectual, and religious hopes.
-      </p>
-      <p>
-        By examining primary source treatises (Banu Musa, Ibn al-Haytham, Al-Jazari, Ibn al-Shatir, Taqi al-Din, and contemporary Fiqh academies), we investigate both the breathtaking mechanical genius of the tradition and the sober juristic inquiries that safeguarded societal cohesion.
-      </p>
-      <div class="pt-4 border-t border-zinc-800 flex flex-wrap gap-4 items-center justify-between text-zinc-500 font-mono text-[11px]">
-        <span>Curatorial License: Creative Commons BY-NC 4.0</span>
-        <span>Standard: Dublin Core & TEI Compatible</span>
-        <a href="https://github.com/abhme9-cmyii44/islamic-techno-archive" target="_blank" class="text-amber-400 hover:underline">GitHub Repository ↗</a>
+  <footer id="about" class="bg-zinc-950 border-t border-zinc-800 py-12 px-6 text-zinc-400 text-xs">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-8">
+      <div class="max-w-md">
+        <h4 class="text-white font-bold font-cinzel text-sm">About the Islamic Techno-Optimism Archive</h4>
+        <p class="mt-2 text-zinc-400 leading-relaxed text-xs">
+          A Digital Humanities media-archaeological research initiative exploring primary manuscript sources, mechanical engineering treaties, and Islamic theological discourse on technology across 1,200 years.
+        </p>
+        <p class="mt-3 text-zinc-500 font-mono text-[11px]">
+          Curated under Dublin Core & TEI metadata standards. Published as open data for scholars and educators.
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-2 font-mono text-xs">
+        <span class="text-zinc-300 font-semibold uppercase tracking-wider">Navigation</span>
+        <a href="#visual-index" class="hover:text-amber-400">Visual Index</a>
+        <a href="#archive" class="hover:text-amber-400">Archival Clippings</a>
+        <a href="#philosophy" class="hover:text-amber-400">Philosophy of Taskheer</a>
+        <a href="#comparison" class="hover:text-amber-400">Dialectic Table</a>
+        <a href="https://github.com/abhme9-cmyii44/islamic-techno-archive" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400">GitHub Source Code</a>
+      </div>
+
+      <div class="flex flex-col gap-2 font-mono text-xs">
+        <span class="text-zinc-300 font-semibold uppercase tracking-wider">Citation & Formats</span>
+        <button onclick="copyBibtex()" class="text-left hover:text-amber-400">Copy BibTeX Citation</button>
+        <a href="data/clippings.json" target="_blank" class="hover:text-amber-400">Raw JSON API (Dublin Core)</a>
+        <span class="text-zinc-600 mt-2">© 2026 Antigravity Digital Humanities & abhme9-cmyii44</span>
       </div>
     </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="border-t border-zinc-800 py-6 px-6 text-center text-[11px] text-zinc-600 font-mono">
-    <p>The Islamic Techno-Optimism Archive · Digital Humanities Laboratory · 1448 AH / 2026 CE</p>
   </footer>
 
-  <!-- Application Logic -->
+  <!-- Script Logic -->
   <script>
     const archiveData = [
-      {
-        id: "paper-750",
-        era: "Classical",
-        century: "750s CE / 133 AH",
-        tech_name: "RAG LINEN PAPER FOUNDRIES",
-        arabic_name: "صناعة الكاغد والورق الكتاني",
-        utopian_promise: "What if knowledge could be liberated from scarce vellum and democratized to every seeker of truth?",
-        pioneer: "Al-Fadl ibn Yahya al-Barmaki & Baghdad Paper Guilds",
-        manuscript_source: "Ibn al-Nadim, Kitab al-Fihrist (987 CE)",
-        shelfmark: "Bibliothèque nationale de France, Arabe 4458",
-        excerpt_english: "Books were once the treasures of emperors and isolated cloisters. With the water-powered stamp mills of Baghdad, parchment was replaced with linen paper, causing a thousand public libraries and book-markets (Suq al-Warraqin) to bloom from Samarkand to Cordoba.",
-        theological_concept: "'Ilm Nafi' (Beneficial Knowledge) & Ta'mim al-Khitab (Universal Access)",
-        dh_analysis: "The paper revolution created the world's first mass-textual information economy. It democratized both sacred Hadith compilation and rational Hellenistic translations, while prompting early juristic debates on safeguarding sacred orthography against cheap degradation.",
-        clippings_count: 8
-      },
-      {
-        id: "automata-850",
-        era: "Classical",
-        century: "850s CE / 236 AH",
-        tech_name: "AUTOMATA & FEEDBACK VALVES",
-        arabic_name: "علم الحيل والآلات الذاتية الحركة",
-        utopian_promise: "Machines that perform physical labor automatically, freeing human contemplation for divine reflection.",
-        pioneer: "Banu Musa Brothers (Ahmad, Muhammad, Al-Hasan)",
-        manuscript_source: "Kitab al-Hiyal (The Book of Ingenious Devices)",
-        shelfmark: "Topkapi Sarayi Library, Istanbul, MS A. 3474; Vatican Arabo 317",
-        excerpt_english: "We engineered vessels that regulate their own fluid levels without human touch through float valves, self-emptying chambers, and hydraulic timers, demonstrating that the unseen laws of pressure are divine blessings ready for use.",
-        theological_concept: "Hiyal Shar'iyyah (Ingenuity as Stewardship) & Sunan al-Kawn",
-        dh_analysis: "The Banu Musa applied closed-loop control systems and conical valves nearly a millennium before Western cybernetics. Mechanical simulation was embraced for civic utility and garden fountains, while philosophically distinguished from creating an autonomous conscious soul (Rūḥ).",
-        clippings_count: 14
-      },
-      {
-        id: "optics-1020",
-        era: "Classical",
-        century: "1020s CE / 411 AH",
-        tech_name: "CAMERA OBSCURA & EMPIRICAL OPTICS",
-        arabic_name: "البيت المظلم والمنهج الاستقرائي في علم المناظر",
-        utopian_promise: "Freeing human perception from philosophical illusions through mathematical demonstration and empirical apparatus.",
-        pioneer: "Al-Hasan Ibn al-Haytham (Alhazen)",
-        manuscript_source: "Kitab al-Manazir (De Aspectibus / Book of Optics)",
-        shelfmark: "Fatih Library, Istanbul, MSS 3212–3216; Ayasofya 2767",
-        excerpt_english: "The seeker after truth is not one who studies the writings of the ancients and puts his trust in them, but rather one who suspects his faith in them and subjects what he gathers to inquiry and demonstration using empirical apparatus.",
-        theological_concept: "Al-I'tibar (Empirical Investigation commanded in the Quran)",
-        dh_analysis: "Ibn al-Haytham overthrew Euclidean emission theory by proving light travels linearly from objects into the eye. His dark chamber (al-bayt al-muzlim) laid the foundation for photography and the modern experimental scientific method.",
-        clippings_count: 11
-      },
-      {
-        id: "cartography-1154",
-        era: "Classical",
-        century: "1150s CE / 548 AH",
-        tech_name: "CARTOGRAPHY & THE SILVER SPHERE",
-        arabic_name: "رسم الخرائط والكرة الفضية المسطحة",
-        utopian_promise: "Mapping the entire inhabited ecumene to unite cross-cultural trade corridors and pilgrim navigation.",
-        pioneer: "Abu Abd Allah Muhammad al-Idrisi",
-        manuscript_source: "Nuzhat al-Mushtaq fi Ikhtiraq al-Afaq (Tabula Rogeriana)",
-        shelfmark: "Bodleian Library, Oxford, MS Pococke 375; BnF Arabe 2221",
-        excerpt_english: "We inscribed upon a massive disc of pure silver the contours of all known continents, river networks, climate zones, and trade corridors, rendering the globe accessible to human navigation.",
-        theological_concept: "Sayr fi al-Ard (Observation of Divine Order) & 'Imarah",
-        dh_analysis: "Al-Idrisi synthesized classical Ptolemaic geography with firsthand accounts from Muslim, Norman, and Mediterranean navigators, creating the most mathematically precise map of the medieval world oriented with South at the top.",
-        clippings_count: 9
-      },
-      {
-        id: "robotics-1206",
-        era: "Classical",
-        century: "1206 CE / 602 AH",
-        tech_name: "HYDRAULIC CRANKSHAFTS & CLOCKS",
-        arabic_name: "الآلات الهندسية والمضخات وميكانيكا التحويل",
-        utopian_promise: "Perpetual mechanical precision coordinating civic time, prayer synchronization, and effortless urban water supply.",
-        pioneer: "Badi' al-Zaman Ismail al-Jazari",
-        manuscript_source: "Al-Jami' bayn al-'Ilm wa al-'Amal al-Nafi'",
-        shelfmark: "Topkapi Palace Museum, Istanbul, MS Ahmet III 3472",
-        excerpt_english: "I engineered reciprocating pistons, segmented cams, and the crankshaft, so that life-giving water could be elevated to city hospitals and fountains without human exhaustion.",
-        theological_concept: "Al-'Amal al-Nafi' (Beneficial Action), Itqan, and Saqya al-Ma'",
-        dh_analysis: "Al-Jazari's invention of the crankshaft is considered the foundational mechanical linkage for the modern steam engine and automobile. His Elephant Clock symbolically incorporated Persian, Indian, Egyptian, and Chinese motifs.",
-        clippings_count: 19
-      },
-      {
-        id: "astrolabe-1300",
-        era: "Early Modern",
-        century: "1300s CE / 700 AH",
-        tech_name: "UNIVERSAL ASTROLABES & COMPUTERS",
-        arabic_name: "الأسطرلاب الجامع وعلم الميقات الفلكي",
-        utopian_promise: "A handheld analog computer synchronizing geographic latitude, Mecca orientation (Qibla), and cosmic cycles.",
-        pioneer: "Ala al-Din Ibn al-Shatir & Abu Ishaq al-Zarqali",
-        manuscript_source: "Nihayat al-Su'l fi Tashih al-Usul & Kitab al-Safihah",
-        shelfmark: "National Maritime Museum, Greenwich; Oxford MHS",
-        excerpt_english: "With a single brass plate etched with stereographic projections, a solitary traveler across the Sahara or Indian Ocean can compute the exact solar zenith, determine prayer times, and align their prostration toward the Kaaba with mathematical certitude.",
-        theological_concept: "Miqat (Sacred Timekeeping) & Taskheer al-Nujum",
-        dh_analysis: "The Islamic astrolabe functioned as the smartphone of the pre-modern world—combining geodesy, timekeeping, celestial mathematics, and religious obligation in an exquisitely engraved brass artifact.",
-        clippings_count: 22
-      },
-      {
-        id: "steam-1577",
-        era: "Early Modern",
-        century: "1570s CE / 985 AH",
-        tech_name: "STEAM TURBINES & OBSERVATORY CLOCKS",
-        arabic_name: "المضخة البخارية وساعات الرصد الفلكي الدقيقة",
-        utopian_promise: "Harnessing expanding vapor to rotate machinery and measure celestial transit in seconds.",
-        pioneer: "Taqi al-Din Muhammad ibn Ma'ruf al-Shami",
-        manuscript_source: "Al-Turuq al-Saniyya fi al-Alat al-Ruhaniyya",
-        shelfmark: "Süleymaniye Library, Istanbul, MS Huseyin Celebi 794",
-        excerpt_english: "We constructed an apparatus driven by the expansion of steam, propelling guided impulse vanes to turn a rotating spit, demonstrating the latent power stored within water and fire centuries before Western industrial prime movers.",
-        theological_concept: "Al-Bahr al-Masjur & Tadqiq al-Hisaab (Measurement Precision)",
-        dh_analysis: "Taqi al-Din designed an impulse steam vane and built a mechanical clock that measured seconds for astronomical observation in 1577. The demolition of the Istanbul observatory in 1580 serves as a tragic case study in political instability arresting scientific momentum.",
-        clippings_count: 7
-      },
-      {
-        id: "print-1727",
-        era: "Early Modern",
-        century: "1720s CE / 1140 AH",
-        tech_name: "ARABIC-SCRIPT MOVABLE TYPE PRINTING",
-        arabic_name: "مطبعة الحروف العربية العثمانية - إبراهيم متفرقة",
-        utopian_promise: "Reviving Islamic intellectual dominance by shielding historic manuscripts from war, fire, and copyist errors.",
-        pioneer: "Ibrahim Muteferrika & Grand Vizier Damat Ibrahim Pasha",
-        manuscript_source: "Wasilat al-Tiba'ah (The Utility of Printing, 1729)",
-        shelfmark: "Beyazit State Library, Istanbul; Library of Congress",
-        excerpt_english: "If knowledge remains bound to handwritten manuscripts, ink fades, texts disperse into foreign hands, and books perish in fires. The printing press produces thousands of identical editions, shielding our heritage and reviving the glory of learning.",
-        theological_concept: "Hifz al-Turath & Fatawa al-Nawazil (Jurisprudence of Disruption)",
-        dh_analysis: "The fatwa of Shaykh al-Islam Abdullah Efendi permitted printing for non-religious works (history, dictionaries, medicine, geography) while preserving handwritten calligraphy for the Quran. This historical debate illustrates how Islamic society navigated technological disruption through juristic consensus.",
-        clippings_count: 16
-      },
-      {
-        id: "radio-1934",
-        era: "Modern",
-        century: "1930s CE / 1353 AH",
-        tech_name: "RADIO BROADCASTING & THE AURAL QURAN",
-        arabic_name: "الإذاعة والبث الصوتي للقرآن الكريم",
-        utopian_promise: "Uniting the global Muslim Ummah across oceans through the simultaneous acoustic broadcast of the living recitation.",
-        pioneer: "Al-Azhar University Scholars & Sheikh Muhammad Rifat",
-        manuscript_source: "Majallat al-Azhar Archives (1934–1936)",
-        shelfmark: "Al-Azhar Central Library Archives, Cairo",
-        excerpt_english: "When the microphone was placed before Sheikh Muhammad Rifat on May 31, 1934, broadcasting 'Inna Fatahna Laka Fathan Mubeena', listeners across Cairo, Jerusalem, and Damascus fell silent. The ethereal waves carried the divine words without wire, transforming living rooms into sacred sanctuaries.",
-        theological_concept: "Balagh (Universal Conveyance) & Hurmat al-Sawt",
-        dh_analysis: "Initial juristic debates questioned whether listening to the Quran through a mechanical radio receiver warranted the prostration of recitation (Sajdat al-Tilawah). Once resolved, the Quranic radio became the most potent mass-cultural unifying force in the modern Arab and Islamic world.",
-        clippings_count: 12
-      },
-      {
-        id: "ai-2024",
-        era: "Modern",
-        century: "2020s CE / 1445 AH",
-        tech_name: "ARTIFICIAL INTELLIGENCE & ETHICAL ALGORITHMS",
-        arabic_name: "الذكاء الاصطناعي وأخلاقيات الخوارزميات الإسلامية",
-        utopian_promise: "Algorithmic disease diagnosis, automated preservation of 14 centuries of juristic heritage, and ethical digital economies.",
-        pioneer: "International Islamic Fiqh Academy & Muslim AI Ethicists",
-        manuscript_source: "IIFA Resolutions on AI & Cybernetics (2020–2024)",
-        shelfmark: "IIFA Resolution No. 248 (25/3); IOMS Archives",
-        excerpt_english: "Artificial intelligence models possess no spiritual soul (Rūḥ) or divine moral agency; they are mathematical mirrors of human training data. Their deployment must be governed by the preservation of human dignity, justice ('Adl), and the prevention of algorithmic discrimination and exploitative surveillance.",
-        theological_concept: "Maqasid al-Shariah (Five Universals) & Maslahah Mursalah",
-        dh_analysis: "While Western transhumanists promote AI as an autonomous post-human deity, Islamic thought frames AI strictly as an instrument of Taskheer. Machine intelligence is bound by accountability, transparency, human dignity, and the prohibition of algorithmic harm.",
-        clippings_count: 25
-      }
-    ];
+  {
+    "id": "paper-750",
+    "era": "Classical",
+    "century": "750s CE / 133 AH",
+    "gregorian_year": 751,
+    "hijri_year": 133,
+    "tech_name": "RAG PAPER PRODUCTION",
+    "arabic_name": "صناعة الكاغد والورق الكتاني",
+    "utopian_promise": "What if knowledge could be liberated from scarce vellum and democratized to every seeker of truth?",
+    "pioneer": "Al-Fadl ibn Yahya al-Barmaki & The Baghdad Paper Mills",
+    "manuscript_source": "Ibn al-Nadim, Kitab al-Fihrist (987 CE) & Al-Jahiz, Kitab al-Hayawan",
+    "shelfmark": "Bibliothèque nationale de France, Arabe 4458",
+    "excerpt_english": "Books were once the treasures of emperors and isolated cloisters. With the water-powered stamp mills of Baghdad, parchment was replaced with linen paper, causing a thousand public libraries and book-markets (Suq al-Warraqin) to bloom from Samarkand to Cordoba.",
+    "theological_concept": "'Ilm Nafi' (Beneficial Knowledge) & Ta'mim al-Khitab (Universal Access)",
+    "dh_analysis": "The paper revolution created the world's first mass-textual information economy. It democratized both sacred Hadith compilation and rational Hellenistic translations, while prompting early juristic debates on safeguarding sacred orthography against cheap degradation.",
+    "clippings_count": 8,
+    "image_path": "assets/images/01_rag_paper.jpg",
+    "image_caption": "Baghdad Paper Scriptorium: Folio from a 30-part Qur'an copied on linen rag paper by Ya'qut al-Musta'simi (Baghdad).",
+    "image_alt": "Classical Islamic manuscript on Abbasid linen rag paper"
+  },
+  {
+    "id": "automata-850",
+    "era": "Classical",
+    "century": "850s CE / 236 AH",
+    "gregorian_year": 850,
+    "hijri_year": 236,
+    "tech_name": "AUTOMATA & FEEDBACK CONTROLS",
+    "arabic_name": "علم الحيل والآلات الذاتية الحركة",
+    "utopian_promise": "Machines that perform physical labor automatically, freeing human contemplation for divine reflection.",
+    "pioneer": "Banu Musa Brothers (Ahmad, Muhammad, and Al-Hasan)",
+    "manuscript_source": "Kitab al-Hiyal (The Book of Ingenious Devices)",
+    "shelfmark": "Topkapi Sarayi Library, Istanbul, MS A. 3474; Vatican Library, Arabo 317",
+    "excerpt_english": "We engineered vessels that regulate their own fluid levels without human touch through float valves, self-emptying chambers, and hydraulic timers, demonstrating that the unseen laws of pressure are divine blessings ready for use.",
+    "theological_concept": "Hiyal Shar'iyyah (Ingenuity as Stewardship) & Sunan al-Kawn (Universal Physical Laws)",
+    "dh_analysis": "The Banu Musa applied closed-loop control systems and conical valves nearly a millennium before Western cybernetics. Mechanical simulation was embraced for civic utility and garden fountains, while philosophically distinguished from creating an autonomous conscious soul (Rūḥ).",
+    "clippings_count": 14,
+    "image_path": "assets/images/02_banu_musa.jpg",
+    "image_caption": "Kitab al-Hiyal (The Book of Ingenious Devices): Manuscript diagram of hydraulic siphon and self-regulating valve mechanism.",
+    "image_alt": "Banu Musa mechanical hydraulic diagram from Kitab al-Hiyal"
+  },
+  {
+    "id": "optics-1020",
+    "era": "Classical",
+    "century": "1020s CE / 411 AH",
+    "gregorian_year": 1021,
+    "hijri_year": 411,
+    "tech_name": "OPTICAL CAMERA OBSCURA & EXPERIMENTATION",
+    "arabic_name": "البيت المظلم والمنهج الاستقرائي في علم المناظر",
+    "utopian_promise": "Freeing human perception from philosophical illusions through mathematical demonstration and empirical apparatus.",
+    "pioneer": "Al-Hasan Ibn al-Haytham (Alhazen)",
+    "manuscript_source": "Kitab al-Manazir (De Aspectibus / Book of Optics)",
+    "shelfmark": "Fatih Library, Istanbul, MSS 3212–3216; Süleymaniye Library, Ayasofya 2767",
+    "excerpt_english": "The seeker after truth is not one who studies the writings of the ancients and puts his trust in them, but rather one who suspects his faith in them and subjects what he gathers to inquiry and demonstration using empirical apparatus.",
+    "theological_concept": "Al-I'tibar (Empirical Investigation commanded by the Quran: 'Reflect, O you who have insight')",
+    "dh_analysis": "Ibn al-Haytham overthrew Euclidean emission theory by proving light travels linearly from objects into the eye. His dark chamber (al-bayt al-muzlim) laid the foundation for photography and the modern experimental scientific method.",
+    "clippings_count": 11,
+    "image_path": "assets/images/04_camera_obscura.jpg",
+    "image_caption": "Kitab al-Manazir (Book of Optics): Title plate and ray diagram demonstrating empirical optical projection and al-Bayt al-Muzlim.",
+    "image_alt": "Ibn al-Haytham optical ray geometry and camera obscura treatise"
+  },
+  {
+    "id": "cartography-1154",
+    "era": "Classical",
+    "century": "1150s CE / 548 AH",
+    "gregorian_year": 1154,
+    "hijri_year": 548,
+    "tech_name": "CARTOGRAPHY & THE SILVER PLANISPHERE",
+    "arabic_name": "رسم الخرائط والكرة الفضية المسطحة",
+    "utopian_promise": "Mapping the entire inhabited ecumene to unite cross-cultural trade routes and pilgrim navigation.",
+    "pioneer": "Abu Abd Allah Muhammad al-Idrisi",
+    "manuscript_source": "Nuzhat al-Mushtaq fi Ikhtiraq al-Afaq (Tabula Rogeriana)",
+    "shelfmark": "Bodleian Library, Oxford, MS Pococke 375; BnF, Paris, Arabe 2221",
+    "excerpt_english": "We inscribed upon a massive disc of pure silver, weighing four hundred Roman pounds, the contours of all known continents, river networks, climate zones, and trade corridors, rendering the globe accessible to human navigation.",
+    "theological_concept": "Sayr fi al-Ard (Travel through the earth to observe divine order) & 'Imarah (Global Trade Stewardship)",
+    "dh_analysis": "Al-Idrisi synthesized classical Ptolemaic geography with firsthand accounts from Muslim, Norman, and Mediterranean navigators, creating the most mathematically precise map of the medieval world oriented with South at the top.",
+    "clippings_count": 9,
+    "image_path": "assets/images/04_idrisi_tabula_rogeriana.jpg",
+    "image_caption": "Tabula Rogeriana (Nuzhat al-Mushtaq): Al-Idrisi's 1154 world map showing the Mediterranean, Nile, and Indian Ocean (BnF Arabe 2221).",
+    "image_alt": "Al-Idrisi world map with South oriented at top"
+  },
+  {
+    "id": "robotics-1206",
+    "era": "Classical",
+    "century": "1206 CE / 602 AH",
+    "gregorian_year": 1206,
+    "hijri_year": 602,
+    "tech_name": "HYDRAULIC CRANKSHAFTS & AUTOMATED CLOCKS",
+    "arabic_name": "الآلات الهندسية والمضخات وميكانيكا التحويل",
+    "utopian_promise": "Perpetual mechanical precision coordinating civic time, prayer synchronization, and effortless urban water supply.",
+    "pioneer": "Badi' al-Zaman Abu al-'Izz Ismail al-Jazari",
+    "manuscript_source": "Al-Jami' bayn al-'Ilm wa al-'Amal al-Nafi' fi Sina'at al-Hiyal",
+    "shelfmark": "Topkapi Palace Museum, Istanbul, MS Ahmet III 3472; Metropolitan Museum of Art, New York",
+    "excerpt_english": "I observed that previous artisans devised machines that functioned only in theory. I engineered reciprocating pistons, segmented cams, and the crankshaft, so that life-giving water could be elevated to city hospitals and fountains without human exhaustion.",
+    "theological_concept": "Al-'Amal al-Nafi' (Beneficial Practice), Itqan (Craft Excellence), and Saqya al-Ma' (The Charity of Water)",
+    "dh_analysis": "Al-Jazari's invention of the crankshaft is considered the foundational mechanical linkage for the steam engine and modern automobile. His Elephant Clock symbolically incorporated Persian, Indian, Egyptian, and Chinese motifs, celebrating universal civilizational dialogue.",
+    "clippings_count": 19,
+    "image_path": "assets/images/05_elephant_clock.jpg",
+    "image_caption": "Al-Jazari's Programmable Elephant Water Clock: Full color miniature from Topkapi Palace MS Ahmet III 3472 showing automaton mahout, falcon, and dragon.",
+    "image_alt": "Al-Jazari Elephant Clock mechanical automaton miniature"
+  },
+  {
+    "id": "astrolabe-1300",
+    "era": "Early Modern",
+    "century": "1300s CE / 700 AH",
+    "gregorian_year": 1350,
+    "hijri_year": 751,
+    "tech_name": "UNIVERSAL ASTROLABES & GEODESIC COMPUTERS",
+    "arabic_name": "الأسطرلاب الجامع وعلم الميقات الفلكي",
+    "utopian_promise": "A handheld analog computer synchronizing geographic latitude, Mecca orientation (Qibla), and cosmic cycles.",
+    "pioneer": "Ala al-Din Ibn al-Shatir & Abu Ishaq al-Zarqali",
+    "manuscript_source": "Nihayat al-Su'l fi Tashih al-Usul & Kitab al-Safihah",
+    "shelfmark": "National Maritime Museum, Greenwich; Museum of the History of Science, Oxford",
+    "excerpt_english": "With a single brass plate etched with stereographic projections, a solitary traveler across the Sahara or Indian Ocean can compute the exact solar zenith, determine prayer times, and align their prostration toward the Kaaba with mathematical certitude.",
+    "theological_concept": "Miqat (Sacred Timekeeping) & Taskheer al-Nujum ('And by the stars they find direction')",
+    "dh_analysis": "The Islamic astrolabe functioned as the smartphone of the pre-modern world—combining geodesy, timekeeping, celestial mathematics, and religious obligation in an exquisitely engraved brass artifact.",
+    "clippings_count": 22,
+    "image_path": "assets/images/03_astrolabe.jpg",
+    "image_caption": "Islamic Brass Planispheric Astrolabe: Universal celestial computer with engraved stereographic rete, prayer curves, and Qibla alignments.",
+    "image_alt": "Engraved Islamic brass astrolabe rete and altitude plates"
+  },
+  {
+    "id": "steam-1577",
+    "era": "Early Modern",
+    "century": "1570s CE / 985 AH",
+    "gregorian_year": 1577,
+    "hijri_year": 985,
+    "tech_name": "STEAM TURBINES & PRECISION OBSERVATORY CLOCKS",
+    "arabic_name": "المضخة البخارية وساعات الرصد الفلكي الدقيقة",
+    "utopian_promise": "Harnessing the expanding vapor of boiling water to rotate machinery and measure celestial transit in seconds.",
+    "pioneer": "Taqi al-Din Muhammad ibn Ma'ruf al-Shami",
+    "manuscript_source": "Al-Turuq al-Saniyya fi al-Alat al-Ruhaniyya (The Sublime Methods of Spiritual Machines)",
+    "shelfmark": "Süleymaniye Library, Istanbul, MS Huseyin Celebi 794; Chester Beatty Library, Dublin",
+    "excerpt_english": "We constructed an apparatus driven by the expansion of steam, propelling guided impulse vanes to turn a rotating spit, demonstrating the latent power stored within water and fire centuries before Western industrial prime movers.",
+    "theological_concept": "Al-Bahr al-Masjur (Harnessing Natural Energy) & Tadqiq al-Hisaab (Precision in Measurement)",
+    "dh_analysis": "Taqi al-Din designed an impulse steam vane and built a mechanical clock that measured seconds for astronomical observation in 1577. The demolition of the Istanbul observatory in 1580 serves as a tragic case study in political instability arresting scientific momentum.",
+    "clippings_count": 7,
+    "image_path": "assets/images/07_taqi_al_din.jpg",
+    "image_caption": "Istanbul Observatory of Taqi al-Din (1577): Miniature showing astronomers, sextants, mechanical clocks, and celestial globes.",
+    "image_alt": "Taqi al-Din Istanbul Observatory miniature painting"
+  },
+  {
+    "id": "print-1727",
+    "era": "Early Modern",
+    "century": "1720s CE / 1140 AH",
+    "gregorian_year": 1727,
+    "hijri_year": 1140,
+    "tech_name": "ARABIC-SCRIPT MOVABLE TYPE PRINTING",
+    "arabic_name": "مطبعة الحروف العربية العثمانية - إبراهيم متفرقة",
+    "utopian_promise": "Reviving Islamic intellectual dominance by shielding historic manuscripts from war, fire, and copyist errors.",
+    "pioneer": "Ibrahim Muteferrika & Grand Vizier Nevşehirli Damat Ibrahim Pasha",
+    "manuscript_source": "Wasilat al-Tiba'ah (The Utility of Printing, 1729 Imperial Petition)",
+    "shelfmark": "Beyazit State Library, Istanbul; Library of Congress, Washington DC",
+    "excerpt_english": "If knowledge remains bound to handwritten manuscripts, ink fades, texts disperse into foreign hands, and books perish in fires. The printing press produces thousands of identical editions, shielding our heritage and reviving the glory of learning.",
+    "theological_concept": "Hifz al-Turath (Preservation of Civilization) & Fatawa al-Nawazil (Jurisprudence of New Technologies)",
+    "dh_analysis": "The fatwa of Shaykh al-Islam Abdullah Efendi permitted printing for non-religious works (history, dictionaries, medicine, geography) while preserving handwritten calligraphy for the Quran. This historical debate illustrates how Islamic society navigated technological disruption through juristic consensus.",
+    "clippings_count": 16,
+    "image_path": "assets/images/08_printing_press.jpg",
+    "image_caption": "Muteferrika Imperial Press (1728): Engraved nautical and world map from Katip Celebi's Cihannuma printed at Istanbul.",
+    "image_alt": "First Ottoman printed map by Ibrahim Muteferrika press"
+  },
+  {
+    "id": "radio-1934",
+    "era": "Modern",
+    "century": "1930s CE / 1353 AH",
+    "gregorian_year": 1934,
+    "hijri_year": 1353,
+    "tech_name": "RADIO BROADCASTING & THE AURAL QURAN",
+    "arabic_name": "الإذاعة والبث الصوتي للقرآن الكريم",
+    "utopian_promise": "Uniting the global Muslim Ummah across oceans through the simultaneous acoustic broadcast of the living recitation.",
+    "pioneer": "Egyptian State Broadcasting & Al-Azhar University Scholars (Sheikh Muhammad Rifat)",
+    "manuscript_source": "Fatwas of Al-Azhar Journal (Majallat al-Azhar, 1934–1936)",
+    "shelfmark": "Al-Azhar Central Library Archives, Cairo; Egyptian National Media Authority Archives",
+    "excerpt_english": "When the microphone was placed before Sheikh Muhammad Rifat on May 31, 1934, broadcasting 'Inna Fatahna Laka Fathan Mubeena', listeners across Cairo, Jerusalem, and Damascus fell silent. The ethereal waves carried the divine words without wire, transforming living rooms into sacred sanctuaries.",
+    "theological_concept": "Balagh (Conveyance to all humanity) & Hurmat al-Sawt (Acoustic Reverence)",
+    "dh_analysis": "Initial juristic debates questioned whether listening to the Quran through a mechanical radio receiver warranted the prostration of recitation (Sajdat al-Tilawah). Once resolved, the Quranic radio became the most potent mass-cultural unifying force in the modern Arab and Islamic world.",
+    "clippings_count": 12,
+    "image_path": "assets/images/09_sheikh_rifat_radio.jpg",
+    "image_caption": "The Living Acoustic Quran: Sheikh Muhammad Rifat reciting before Egyptian State Broadcasting microphone on opening day, May 31, 1934.",
+    "image_alt": "Sheikh Muhammad Rifat at the microphone for historical first radio broadcast"
+  },
+  {
+    "id": "ai-2024",
+    "era": "Modern",
+    "century": "2020s CE / 1445 AH",
+    "gregorian_year": 2024,
+    "hijri_year": 1445,
+    "tech_name": "ARTIFICIAL INTELLIGENCE & ETHICAL ALGORITHMS",
+    "arabic_name": "الذكاء الاصطناعي وأخلاقيات الخوارزميات الإسلامية",
+    "utopian_promise": "Algorithmic disease diagnosis, automated preservation of 14 centuries of juristic heritage, and ethical digital economies.",
+    "pioneer": "International Islamic Fiqh Academy & Muslim AI Ethicists",
+    "manuscript_source": "Resolutions of the International Islamic Fiqh Academy on AI & Bioethics (2020–2024)",
+    "shelfmark": "IIFA Resolution No. 248 (25/3); Islamic Organization for Medical Sciences (IOMS)",
+    "excerpt_english": "Artificial intelligence models possess no spiritual soul (Rūḥ) or divine moral agency; they are mathematical mirrors of human training data. Their deployment must be governed by the preservation of human dignity, justice ('Adl), and the prevention of algorithmic discrimination and exploitative surveillance.",
+    "theological_concept": "Maqasid al-Shariah (Five Universals: Faith, Life, Intellect, Lineage, Wealth) & Maslahah Mursalah",
+    "dh_analysis": "While Western transhumanists promote AI as an autonomous post-human deity, Islamic thought frames AI strictly as an instrument of Taskheer. Machine intelligence is bound by accountability, transparency, human dignity, and the prohibition of algorithmic harm.",
+    "clippings_count": 25,
+    "image_path": "assets/images/10_algorithmic_geometry.jpg",
+    "image_caption": "Algorithmic Girih Geometry: Infinite non-periodic mathematical tessellations embodying Islamic computational ethics and recursive symmetry.",
+    "image_alt": "Complex Islamic geometric girih pattern tilework"
+  }
+];
 
-    let currentEra = 'all';
+    let activeFilter = 'all';
 
-    function renderCards(items) {
+    function renderCards(data) {
       const grid = document.getElementById('archiveGrid');
       const noResults = document.getElementById('noResults');
 
-      if (items.length === 0) {
+      if (data.length === 0) {
         grid.innerHTML = '';
         noResults.classList.remove('hidden');
         return;
       }
 
       noResults.classList.add('hidden');
-      grid.innerHTML = items.map(item => `
-        <article class="border border-zinc-800 bg-zinc-900/60 p-6 flex flex-col justify-between card-hover cursor-pointer" onclick="openModal('${item.id}')">
-          <div>
-            <div class="flex justify-between items-start mb-3">
-              <span class="text-xs text-amber-400 font-mono tracking-wider font-semibold">${item.century}</span>
-              <span class="text-[10px] bg-zinc-800 text-zinc-400 px-2 py-0.5 uppercase tracking-wider font-mono">${item.era}</span>
+
+      grid.innerHTML = data.map(item => `
+        <article id="card-${item.id}" class="group bg-zinc-900 border border-zinc-800 hover:border-amber-400 card-hover flex flex-col justify-between overflow-hidden">
+          
+          <!-- Image Container with Scanned Archival Plate -->
+          <div class="relative aspect-[16/10] overflow-hidden bg-black border-b border-zinc-800 cursor-pointer" onclick="openModal('${item.id}')">
+            <img src="${item.image_path}" 
+                 alt="${item.image_alt}" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-95 group-hover:brightness-105"
+                 >
+            
+            <!-- Vignette & Badges Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none"></div>
+            
+            <div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+              <span class="bg-black/90 border border-amber-500/60 text-amber-400 text-[10px] font-mono px-2 py-0.5 font-bold uppercase tracking-wider shadow">
+                ${item.century}
+              </span>
             </div>
-            <h2 class="text-base font-bold text-white tracking-tight mb-1 font-cinzel">${item.tech_name}</h2>
-            <h3 class="text-sm text-zinc-400 font-amiri font-bold mb-3">${item.arabic_name}</h3>
-            <p class="text-xs text-zinc-300 italic mb-4 leading-relaxed border-l-2 border-amber-500/50 pl-3">
-              "${item.utopian_promise}"
-            </p>
+
+            <div class="absolute top-2.5 right-2.5">
+              <span class="bg-black/80 border border-zinc-700 text-zinc-300 text-[9px] font-mono px-1.5 py-0.5">
+                ${item.clippings_count} Clippings
+              </span>
+            </div>
+
+            <div class="absolute bottom-2 left-2.5 right-2.5">
+              <p class="text-[10px] font-mono text-zinc-400 line-clamp-1 truncate">
+                📜 ${item.manuscript_source.split('(')[0]}
+              </p>
+            </div>
           </div>
-          <div class="pt-4 border-t border-zinc-800/80 flex justify-between items-center text-[11px] text-zinc-500 font-mono">
-            <span>${item.clippings_count} Archival Clippings</span>
-            <span class="text-amber-400 hover:underline">Explore ➔</span>
+
+          <!-- Card Body -->
+          <div class="p-5 flex-grow flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="text-base font-bold text-white group-hover:text-amber-400 transition font-cinzel leading-snug">
+                  ${item.tech_name}
+                </h3>
+              </div>
+              <p class="text-xs text-amber-500 font-amiri text-sm mb-3">
+                ${item.arabic_name}
+              </p>
+              
+              <blockquote class="text-zinc-300 text-xs italic border-l-2 border-amber-500/60 pl-3 my-3 leading-relaxed">
+                "${item.utopian_promise}"
+              </blockquote>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-zinc-800/80">
+              <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400 mb-2">
+                <span class="truncate">👤 ${item.pioneer.split('&')[0].trim()}</span>
+                <span class="text-amber-400/90 shrink-0 font-medium">${item.theological_concept.split('(')[0].trim()}</span>
+              </div>
+
+              <button onclick="openModal('${item.id}')" 
+                      class="w-full mt-2 py-2 px-3 bg-zinc-800/90 hover:bg-amber-500 hover:text-black text-zinc-200 text-xs font-mono font-medium transition flex items-center justify-center gap-1.5 border border-zinc-700 hover:border-amber-400">
+                <span>Inspect Archival Plate & Clipping 🔍</span>
+              </button>
+            </div>
           </div>
+
         </article>
       `).join('');
     }
 
-    function setFilter(era, buttonElement) {
-      currentEra = era;
-      document.querySelectorAll('.active-pill').forEach(el => {
-        el.classList.remove('active-pill');
-        el.classList.add('text-zinc-400', 'border-zinc-800');
-      });
-      buttonElement.classList.add('active-pill');
-      buttonElement.classList.remove('text-zinc-400', 'border-zinc-800');
-      filterData();
+    function jumpToCard(id) {
+      const el = document.getElementById('card-' + id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.add('ring-2', 'ring-amber-400');
+        setTimeout(() => el.classList.remove('ring-2', 'ring-amber-400'), 2000);
+      } else {
+        // Reset filter if hidden
+        setFilter('all', document.querySelector('.filter-btn'));
+        setTimeout(() => {
+          const target = document.getElementById('card-' + id);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 150);
+      }
     }
 
-    function filterData() {
+    function filterArchive() {
       const query = document.getElementById('searchInput').value.toLowerCase().trim();
-      let results = archiveData;
+      
+      const filtered = archiveData.filter(item => {
+        const matchesEra = (activeFilter === 'all') || (item.era === activeFilter);
+        const matchesQuery = !query || 
+          item.tech_name.toLowerCase().includes(query) ||
+          item.arabic_name.toLowerCase().includes(query) ||
+          item.pioneer.toLowerCase().includes(query) ||
+          item.manuscript_source.toLowerCase().includes(query) ||
+          item.utopian_promise.toLowerCase().includes(query) ||
+          item.theological_concept.toLowerCase().includes(query) ||
+          item.dh_analysis.toLowerCase().includes(query);
 
-      if (currentEra !== 'all') {
-        results = results.filter(d => d.era === currentEra);
-      }
+        return matchesEra && matchesQuery;
+      });
 
-      if (query) {
-        results = results.filter(d => 
-          d.tech_name.toLowerCase().includes(query) ||
-          d.arabic_name.includes(query) ||
-          d.pioneer.toLowerCase().includes(query) ||
-          d.utopian_promise.toLowerCase().includes(query) ||
-          d.theological_concept.toLowerCase().includes(query) ||
-          d.excerpt_english.toLowerCase().includes(query)
-        );
-      }
-
-      renderCards(results);
+      renderCards(filtered);
     }
 
-    document.getElementById('searchInput').addEventListener('input', filterData);
+    function setFilter(era, btn) {
+      activeFilter = era;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active-pill'));
+      if (btn) btn.classList.add('active-pill');
+      filterArchive();
+    }
 
     function openModal(id) {
       const item = archiveData.find(d => d.id === id);
       if (!item) return;
 
-      const modalContent = document.getElementById('modalContent');
-      modalContent.innerHTML = `
-        <div class="border-b border-zinc-800 pb-4 mb-5">
-          <div class="flex justify-between items-center text-xs font-mono text-amber-400 mb-1">
-            <span>${item.century}</span>
-            <span class="bg-zinc-800 text-zinc-400 px-2 py-0.5 text-[10px] uppercase">${item.era}</span>
-          </div>
-          <h2 class="text-xl md:text-2xl font-bold text-white font-cinzel">${item.tech_name}</h2>
-          <h3 class="text-base text-zinc-300 font-amiri font-bold mt-1">${item.arabic_name}</h3>
-        </div>
-
-        <div class="space-y-4 text-xs leading-relaxed text-zinc-300">
-          <div>
-            <span class="text-[10px] uppercase text-zinc-500 font-mono tracking-wider font-semibold block">The Utopian Promise</span>
-            <p class="text-amber-200 italic mt-1 text-sm bg-amber-950/20 border-l-2 border-amber-500 p-2.5">
-              "${item.utopian_promise}"
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-            <div class="bg-zinc-950 p-3 border border-zinc-800">
-              <span class="text-[10px] uppercase text-zinc-500 font-mono font-semibold block">Pioneer / Guild</span>
-              <p class="text-white font-medium mt-0.5">${item.pioneer}</p>
+      const content = document.getElementById('modalContent');
+      content.innerHTML = `
+        <div class="space-y-5">
+          
+          <!-- Modal Header -->
+          <div class="border-b border-zinc-800 pb-3">
+            <div class="flex flex-wrap items-center gap-2 mb-1.5">
+              <span class="bg-amber-950 border border-amber-800 text-amber-400 text-[10px] font-mono px-2 py-0.5 uppercase tracking-wider font-semibold">
+                ${item.era} Era · ${item.century}
+              </span>
+              <span class="text-zinc-500 font-mono text-xs">· Shelfmark: ${item.shelfmark}</span>
             </div>
-            <div class="bg-zinc-950 p-3 border border-zinc-800">
-              <span class="text-[10px] uppercase text-zinc-500 font-mono font-semibold block">Theological Concept</span>
-              <p class="text-amber-400 font-medium mt-0.5">${item.theological_concept}</p>
+            <h2 class="text-xl md:text-2xl font-bold text-white font-cinzel">${item.tech_name}</h2>
+            <p class="text-sm text-amber-500 font-amiri mt-0.5">${item.arabic_name}</p>
+          </div>
+
+          <!-- Archival Plate Image Showcase -->
+          <div class="relative bg-black border border-zinc-800 overflow-hidden group">
+            <img src="${item.image_path}" 
+                 alt="${item.image_alt}" 
+                 class="w-full max-h-[460px] object-contain mx-auto bg-black/90">
+            <div class="p-3 bg-zinc-950 border-t border-zinc-800 text-[11px] text-zinc-400 font-mono flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+              <span>📷 ${item.image_caption}</span>
+              <a href="${item.image_path}" target="_blank" class="text-amber-400 hover:underline shrink-0 text-xs">
+                Open Full Resolution ↗
+              </a>
             </div>
           </div>
 
+          <!-- Historical Promise & Pioneer Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+            <div class="bg-zinc-950 p-3.5 border border-zinc-800">
+              <span class="text-[10px] uppercase text-zinc-500 font-semibold block">Pioneer & Guild</span>
+              <p class="text-white font-medium mt-1">${item.pioneer}</p>
+            </div>
+            <div class="bg-zinc-950 p-3.5 border border-zinc-800">
+              <span class="text-[10px] uppercase text-zinc-500 font-semibold block">Theological Matrix</span>
+              <p class="text-amber-400 font-medium mt-1">${item.theological_concept}</p>
+            </div>
+          </div>
+
+          <!-- Archival Excerpt -->
           <div class="bg-zinc-950 p-4 border border-zinc-800">
             <div class="flex justify-between items-center mb-1 text-[10px] font-mono text-zinc-500">
               <span>PRIMARY ARCHIVAL EXCERPT</span>
-              <span>${item.shelfmark}</span>
+              <span>${item.manuscript_source.split('(')[0]}</span>
             </div>
-            <p class="text-zinc-200 italic mt-1 leading-relaxed">
+            <p class="text-zinc-200 italic mt-2 leading-relaxed text-xs md:text-sm">
               "${item.excerpt_english}"
             </p>
             <p class="text-right text-[11px] text-zinc-400 mt-2 font-mono">— ${item.manuscript_source}</p>
           </div>
 
-          <div>
-            <span class="text-[10px] uppercase text-zinc-500 font-mono tracking-wider font-semibold block">Digital Humanities & Ethical Critique</span>
-            <p class="text-zinc-400 mt-1 leading-relaxed">
+          <!-- Digital Humanities Critique -->
+          <div class="bg-zinc-950/60 p-4 border border-zinc-800/80">
+            <span class="text-[10px] uppercase text-zinc-400 font-mono tracking-wider font-semibold block">Digital Humanities & Ethical Critique</span>
+            <p class="text-zinc-300 mt-1.5 leading-relaxed text-xs">
               ${item.dh_analysis}
             </p>
           </div>
         </div>
 
         <div class="mt-6 pt-4 border-t border-zinc-800 flex flex-wrap gap-3 justify-between items-center text-xs">
-          <button onclick="copyCitation('${item.id}')" class="px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-mono text-[11px] transition">
-            📋 Copy Dublin Core Citation
-          </button>
+          <div class="flex gap-2">
+            <button onclick="copyCitation('${item.id}')" class="px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-mono text-[11px] transition">
+              📋 Copy Dublin Core Citation
+            </button>
+            <a href="${item.image_path}" download class="px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-mono text-[11px] transition">
+              📥 Download Archival Plate
+            </a>
+          </div>
           <button onclick="closeModal()" class="px-4 py-1.5 bg-amber-500 hover:bg-amber-400 text-black font-semibold transition">
             Close Clipping
           </button>
@@ -510,9 +786,22 @@
 
     function copyCitation(id) {
       const item = archiveData.find(d => d.id === id);
-      const citation = `Islamic Techno-Optimism Archive. (2026). "${item.tech_name} (${item.century})". Retrieved from https://abhme9-cmyii44.github.io/islamic-techno-archive/#${item.id}. Source: ${item.manuscript_source}.`;
+      const citation = `Islamic Techno-Optimism Archive. (2026). "${item.tech_name} (${item.century})". Retrieved from https://abhme9-cmyii44.github.io/islamic-techno-archive/#${item.id}. Primary Source: ${item.manuscript_source}. Shelfmark: ${item.shelfmark}.`;
       navigator.clipboard.writeText(citation).then(() => {
         alert("Citation copied to clipboard!");
+      });
+    }
+
+    function copyBibtex() {
+      const bib = `@misc{islamic_techno_archive_2026,
+  author = {Antigravity Digital Humanities & abhme9-cmyii44},
+  title = {The Islamic Techno-Optimism Archive: Promises of Sacred Progress, Mechanical Ingenuity, and Fiqh al-Taskheer},
+  year = {2026},
+  publisher = {GitHub},
+  howpublished = {"https://abhme9-cmyii44.github.io/islamic-techno-archive/"}
+}`;
+      navigator.clipboard.writeText(bib).then(() => {
+        alert("BibTeX citation copied to clipboard!");
       });
     }
 
